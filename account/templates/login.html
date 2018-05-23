@@ -1,0 +1,8 @@
+﻿<div class="row text-center vertical-middle-sm">
+    <h1>风寻科技草根运维网</h1>
+    <p>输入用户名和密码</p>
+    <form class="form-horizontal" action="." method="post">{% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit" value="Login">
+    </form>
+</div>
