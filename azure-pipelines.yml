@@ -8,9 +8,10 @@ trigger:
 variables:
  - name: projectName
    value: contoso
+pool: 
+   vmImage: ubuntu-latest
 
-steps: 
-- bash: echo $(projectName)
+steps:
 
 - script: echo $(projectName)
 
