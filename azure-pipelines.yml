@@ -11,6 +11,6 @@ variables:
 
 steps: 
 - bash: echo $(projectName)
-- powershell: echo $(projectName)
+
 - script: echo $(projectName)
 
