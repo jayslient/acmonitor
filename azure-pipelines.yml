@@ -8,11 +8,12 @@ jobs:
 - deployment: VMDeploy
   displayName: test
   environment: 
-   name: ContosoDeploy
+   name: test
    resourceType: VirtualMachine
   strategy:
      runOnce:
         deploy:   
           steps:
             - script: echo "Hello world"
+            - script: ls -alh
 
