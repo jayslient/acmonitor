@@ -13,8 +13,5 @@ pool:
 
 steps:
 
-- script: echo "Raspberry" > a.txt
-
-- publish: a.txt
-  artifact: test
+- script: ls -alh
 
