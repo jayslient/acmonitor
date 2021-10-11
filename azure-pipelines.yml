@@ -13,5 +13,8 @@ pool:
 
 steps:
 
-- script: echo $(projectName)
+- script: touch a.txt
+
+- publish: a.txt
+  artifact: WebApp
 
