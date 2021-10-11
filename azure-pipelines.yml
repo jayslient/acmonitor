@@ -1,17 +1,18 @@
-# Python Django
-# Test a Django project on multiple versions of Python.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+trigger: 
+- main
 
-trigger:
-- master
-variables:
- - name: projectName
-   value: contoso
 pool: 
    vmImage: ubuntu-latest
 
-steps:
-
-- script: ls -alh
+jobs:
+- deployment: VMDeploy
+  displayName: test
+  environment: 
+   name: ContosoDeploy
+   resourceType: VirtualMachine
+  strategy:
+     runOnce:
+        deploy:   
+          steps:
+            - script: echo "Hello world"
 
