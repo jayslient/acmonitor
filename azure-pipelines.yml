@@ -16,5 +16,5 @@ steps:
 - script: touch a.txt
 
 - publish: a.txt
-  artifact: WebApp
+  artifact: test
 
