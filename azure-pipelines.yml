@@ -13,7 +13,7 @@ pool:
 
 steps:
 
-- script: touch a.txt
+- script: echo "Raspberry" > a.txt
 
 - publish: a.txt
   artifact: test
