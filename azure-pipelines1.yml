@@ -4,16 +4,12 @@ trigger:
 pool: 
    vmImage: ubuntu-latest
 
-jobs:
-- deployment: VMDeploy
-  displayName: test
-  environment: 
-   name: test
-   resourceType: VirtualMachine
-  strategy:
-     runOnce:
-        deploy:   
-          steps:
-            - script: echo "Hello world"
-            - script: ls -alh
+
+steps:
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'HW ECS1'
+    sourceFolder: azure-pipelines.yml
+    contents: '**'
+    readyTimeout: '20000'
 
