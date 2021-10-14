@@ -4,9 +4,9 @@ trigger:
 pool: 
    vmImage: ubuntu-latest
 
-
 steps:
-- publish: $(System.DefaultWorkingDirectory)/*
+
+- publish: $(System.DefaultWorkingDirectory)/test.yml
   artifact: WebApp
 
 
