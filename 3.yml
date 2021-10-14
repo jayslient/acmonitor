@@ -4,21 +4,9 @@ trigger:
 pool: 
    vmImage: ubuntu-latest
 
-jobs:
-- deployment: VMDeploy
-  displayName: test
-  environment: 
-   name: test
-   resourceType: VirtualMachine
-  strategy:
-     runOnce:
-        deploy:   
-          steps:
-            - script: touch abc
-            - task: CopyFilesOverSSH@0
-              inputs:
-                sshEndpoint: 'HW ECS1'
-                contents: '**'
-                readyTimeout: '20000'
+
+steps:
+- publish: $(System.DefaultWorkingDirectory)/*
+  artifact: WebApp
 
 
