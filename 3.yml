@@ -3,10 +3,17 @@ trigger:
 
 pool: 
    vmImage: ubuntu-latest
-
 steps:
+- task: CopyFiles@2
+  displayName: 'Copy distribution to artifact staging directory'
+  inputs:
+    sourceFolder: 'dist'
+    targetFolder: '$(Build.ArtifactStagingDirectory)/dist'
 
-- publish: $(System.DefaultWorkingDirectory)/test.yml
-  artifact: WebApp
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 
 
