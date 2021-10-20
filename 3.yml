@@ -1,19 +1,17 @@
 trigger: 
 - main
 
+variables:
+  - name: app_name
+    value: test
 pool: 
    vmImage: ubuntu-latest
 steps:
-- task: CopyFiles@2
-  displayName: 'Copy distribution to artifact staging directory'
-  inputs:
-    sourceFolder: 'account'
-    targetFolder: '$(Build.ArtifactStagingDirectory)/account'
+- script: |
+    python -m venv venv
+    source venv/bin/activate
+    python testpy/setup.py
+  displayName: 'Create source distribution'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'account'
-    publishLocation: 'Container'
 
 
