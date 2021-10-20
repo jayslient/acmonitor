@@ -1,19 +1,16 @@
 trigger: 
 - main
 
+
+variables:
+  - name: app_name
+    value: test
 pool: 
    vmImage: ubuntu-latest
-
-jobs:
-- deployment: VMDeploy
-  displayName: test
-  environment: 
-   name: test
-   resourceType: VirtualMachine
-  strategy:
-     runOnce:
-        deploy:   
-          steps:
-            - script: echo "Hello world"
-            - script: ls -alh
+steps:
+- script: |
+    python -m venv venv
+    source venv/bin/activate
+    python testpy/setup.py
+  displayName: 'Create source distribution'
 
